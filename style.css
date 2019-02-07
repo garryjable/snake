@@ -9,6 +9,12 @@
     justify-content: space-between;
 }
 
+.margins {
+    margin-right: 150px;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
 .flex-around {
     display: flex;
     flex-direction: row;
@@ -16,10 +22,10 @@
     justify-content: space-around;
 }
 
-.flex-col {
+.flex-col-around {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 

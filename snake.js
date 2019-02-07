@@ -21,6 +21,7 @@ var input = [];
 var moveRate = 150;
 var lastMoveStamp = 0;
 var snakeLength = 1;
+var highScores = [];
 
 // Setting up the game board empty
 
@@ -112,6 +113,11 @@ function update(elapsedTime) {
         board[row][col] !== 0
     ) {
       // game over
+      highScores.push(snakeLength);
+      highScores.sort((a, b) => b - a);
+      while (highScores.length > 5) {
+        highScores.pop();
+      }
       gameOver = true;
     } else if (board[row][col] == food) {
       // move the snake
@@ -214,6 +220,15 @@ function render() {
   }
   let score = document.getElementById('score');
   score.textContent = snakeLength;
+  let highScoreDiv = document.getElementById('highscores');
+  while (highScoreDiv.firstChild) {
+    highScoreDiv.removeChild(highScoreDiv.firstChild);
+  }
+  for (let i = 0; i < highScores.length; i++) {
+    let newHighScore = document.createElement('div');
+    newHighScore.textContent = highScores[i];
+    highScoreDiv.appendChild(newHighScore);
+  }
 }
 
 function paintRect(yCoord, xCoord, color) {
