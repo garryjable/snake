@@ -7,11 +7,20 @@
   </head>
 
   <body>
-    <div class='flex header'>
+    <div class='flex-around header'>
         <h1 >Snake</h1>
     </div>
-    <canvas id='gameBoard' width="500" height="500"></canvas>
-    <div class='flex header'>
+    <div class='flex-between'>
+      <canvas id='gameBoard' width="500" height="500"></canvas>
+      <div class='flex-col'>
+        <div class='flex-around'>
+          <input id="newGame" type="button" value="New Game" onclick="populateBoard();" />
+          <div>SCORE: </div>
+          <div class='score' id="score" name="score"></div>
+        </div>
+      </div>
+    </div>
+    <div class='flex-around header'>
         <h4 >Use arrow keys to drive the snake</h4>
     </div>
     <script src="snake.js" type="text/javascript"></script>
